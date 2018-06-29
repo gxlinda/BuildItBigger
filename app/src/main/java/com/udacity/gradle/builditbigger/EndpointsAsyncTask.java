@@ -2,7 +2,6 @@ package com.udacity.gradle.builditbigger;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v4.util.Pair;
 
@@ -57,9 +56,6 @@ public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, S
 
     @Override
     protected void onPostExecute(String result) {
-//        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(context, DisplayJokeActivity.class);
-        intent.putExtra("joke", result);
-        context.startActivity(intent);
+        context.startActivity(DisplayJokeActivity.newIntent(context, result));
     }
 }
